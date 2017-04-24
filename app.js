@@ -94,9 +94,9 @@ function drawProperty(arrProp) {
 
 var newProp = document.getElementById("prints")
 
-  var templates = ''
+var newTemplate = ''
 function addProperty() {
-  templates += `
+  newTemplate += `
     <div class="col-lg-4">
       <img src="${newProp.innerHTML += document.getElementById("pic").value}" width="100%">
       <h4>${newProp.innerHTML += document.getElementById("price").value} ${newProp.innerHTML += document.getElementById('city').value} ${newProp.innerHTML += document.getElementById('state').value}</h4><br><br>
