@@ -92,7 +92,7 @@ function drawProperty(arrProp) {
 }
 
 
-var newProp = document.getElementById("prints")
+var newProp = document.getElementById("print")
 
 var newTemplate = ''
 function addProperty() {
