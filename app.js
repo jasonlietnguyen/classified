@@ -45,7 +45,7 @@ function drawCars(arrCars) {
 
 
 
-/////////////
+////////////////////////////////////////////////////
 
 
 
@@ -73,6 +73,8 @@ var roryHouse = new Property("https://s-media-cache-ak0.pinimg.com/736x/a4/8c/d6
 
 var mandiHouse = new Property("https://s-media-cache-ak0.pinimg.com/736x/a4/8c/d6/a48cd68cb85fa6a82beb7085dd9fc085.jpg", 90970, "Meridian", "Idaho", 2)
 
+var myHouse = new Property(document.getElementById("pic").value, 90970, "Meridian", "Idaho", 2)
+
 function drawProperty(arrProp) {
   carsList.innerHTML = ''
   propertyList.innerHTML = document.getElementById("property-list")
@@ -89,3 +91,16 @@ function drawProperty(arrProp) {
   propertyList.innerHTML = template
 }
 
+
+var newProp = document.getElementById("prints")
+
+  var templates = ''
+function addProperty() {
+  templates += `
+    <div class="col-lg-4">
+      <img src="${newProp.innerHTML += document.getElementById("pic").value}" width="100%">
+      <h4>${newProp.innerHTML += document.getElementById("price").value} ${newProp.innerHTML += document.getElementById('city').value} ${newProp.innerHTML += document.getElementById('state').value}</h4><br><br>
+    </div>
+    `
+  newProp.innerHTML = templates
+}
