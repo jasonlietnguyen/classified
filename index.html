@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="main.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
     crossorigin="anonymous">
-  <title>Document</title>
+  <title>Classified</title>
 </head>
 
 <body>
@@ -17,21 +17,22 @@
     <br>
     <button type="button" onclick="drawProperty(property)" class="btn btn-primary btn-block">Property</button><br>
     <button type="button" onclick="drawCars(cars)" class="btn btn-success btn-block">Cars</button><br>
-    <div id="print"></div>
+    <form action="">
+      <input type="text" id="pic" placeholder="Picture Url">
+      <input type="text" id="price" placeholder="Price">
+      <input type="text" id="city" placeholder="City">
+      <input type="text" id="state" placeholder="State">
+      <input type="text" id="beds" placeholder="Beds">
+      <button type="button" class="btn btn-info" onclick="addProperty()">Submit</button>
+    </form><br>
 
     <div id="cars-list" class="row">
-      <form action="">
-        <input type="text" id="pic" placeholder="Picture Url">
-        <input type="text" id="price" placeholder="Price">
-        <input type="text" id="city" placeholder="City">
-        <input type="text" id="state" placeholder="State">
-        <input type="text" id="beds" placeholder="Beds">
-        <button type="button" class="btn btn-info" onclick="addProperty()">Submit</button>
-      </form>
     </div>
 
     <div id="property-list" class="row">
     </div>
+
+    <div id="print"></div>
   </div>
 
   <script src="app.js"></script>

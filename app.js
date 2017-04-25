@@ -52,12 +52,11 @@ function drawCars(arrCars) {
 var propertyList = document.getElementById("property-list")
 
 var property = [];
-function Property(picture, price, city, state, beds) {
+function Property(picture, price, city, state) {
   this.picture = picture;
   this.price = price;
-  this.color = city;
-  this.condition = state;
-  this.make = beds;
+  this.city = city;
+  this.state = state;
   property.push(this)
 }
 
@@ -73,7 +72,6 @@ var roryHouse = new Property("https://s-media-cache-ak0.pinimg.com/736x/a4/8c/d6
 
 var mandiHouse = new Property("https://s-media-cache-ak0.pinimg.com/736x/a4/8c/d6/a48cd68cb85fa6a82beb7085dd9fc085.jpg", 90970, "Meridian", "Idaho", 2)
 
-var myHouse = new Property(document.getElementById("pic").value, 90970, "Meridian", "Idaho", 2)
 
 function drawProperty(arrProp) {
   carsList.innerHTML = ''
@@ -94,13 +92,16 @@ function drawProperty(arrProp) {
 
 var newProp = document.getElementById("print")
 
-var newTemplate = ''
 function addProperty() {
-  newTemplate += `
-    <div class="col-lg-4">
-      <img src="${newProp.innerHTML += document.getElementById("pic").value}" width="100%">
-      <h4>${newProp.innerHTML += document.getElementById("price").value} ${newProp.innerHTML += document.getElementById('city').value} ${newProp.innerHTML += document.getElementById('state').value}</h4><br><br>
-    </div>
-    `
-  newProp.innerHTML = templates
+  new Property(document.getElementById("pic").value,
+    document.getElementById("price").value,
+    document.getElementById('city').value,
+    document.getElementById('state').value)
+    drawProperty(property)
+  // return newProp.innerHTML = `
+  //   <div class="col-lg-4">
+  //     <img src="${document.getElementById("pic").value}" width="100%">
+  //     <h4>${document.getElementById("price").value} ${document.getElementById('city').value} ${document.getElementById('state').value}</h4><br><br>
+  //   </div>
+  //   `
 }
