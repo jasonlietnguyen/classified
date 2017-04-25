@@ -176,15 +176,16 @@ function addProperty() {
 var jobList = document.getElementById("job-list")
 
 var job = [];
-function Job(title, description) {
+function Job(title, salary, description) {
   this.title = title;
+  this.salary = salary;
   this.description = description.split(",");
   job.push(this)
 }
 
-var job1 = new Job("Web Designer", "Photoshop, Css, Html")
-var job2 = new Job("UI/UX Designer", "LightRoom, Indesign, Illistrator")
-var job2 = new Job("Software Developer", "C#, Java, Ruby, Phyton")
+var job1 = new Job("Web Designer", 65687, "Photoshop, Css, Html")
+var job2 = new Job("UI/UX Designer", 98234, "LightRoom, Indesign, Illistrator")
+var job2 = new Job("Software Developer", 30582, "C#, Java, Ruby, Phyton")
 
 
 
@@ -213,7 +214,7 @@ function drawJob(arrJob) {
     for (var j = 0; j < job.description.length; j++) {
       list += `<li>${job.description[j]}</li>`
     }
-    template += `<div class="col-lg-4"><h1>${job.title}</h1>` + list + `</div>`
+    template += `<div class="col-lg-4"><h1>${job.title}</h1><h3>$${job.salary} Anually</h3>` + list + `</div>`
   }
   jobList.innerHTML = form + template
 }
