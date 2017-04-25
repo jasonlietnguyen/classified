@@ -35,7 +35,7 @@ function drawCars(arrCars) {
     template += `
     <div class="col-lg-4">
       <img src="${car.picture}" width="100%"><br>
-      <h4>${car.make} ${car.model} ${car.year}</h4>
+      <h4>$${car.make} ${car.model} ${car.year}</h4>
     </div>
     `
   }
@@ -77,16 +77,25 @@ function drawProperty(arrProp) {
   carsList.innerHTML = ''
   propertyList.innerHTML = document.getElementById("property-list")
   var template = ''
+  var form = ` 
+    <form action="">
+      <input type="text" id="pic" placeholder="Picture Url">
+      <input type="text" id="price" placeholder="Price">
+      <input type="text" id="city" placeholder="City">
+      <input type="text" id="state" placeholder="State">
+      <input type="text" id="beds" placeholder="Beds">
+      <button type="button" class="btn btn-info" onclick="addProperty()">Submit</button>
+    </form><br>`
   for (var i = 0; i < arrProp.length; i++) {
     var prop = arrProp[i]
     template += `
     <div class="col-lg-4">
       <img src="${prop.picture}" width="100%">
-      <h4>${prop.price} ${prop.city} ${prop.state}</h4><br><br>
+      <h4>$${prop.price} ${prop.city} ${prop.state}</h4><br><br>
     </div>
     `
   }
-  propertyList.innerHTML = template
+  propertyList.innerHTML = form + template
 }
 
 
