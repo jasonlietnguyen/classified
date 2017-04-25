@@ -13,11 +13,62 @@
 
 <body>
 
-  <div class="container text-center">
+  <div class="container">
     <br>
     <button type="button" onclick="drawProperty(property)" class="btn btn-primary btn-block">Property</button><br>
     <button type="button" onclick="drawCars(cars)" class="btn btn-success btn-block">Cars</button><br>
+    <button type="button" onclick="drawJob(job)" class="btn btn-info btn-block">Jobs</button><br>
     
+
+
+    <!--<form onsubmit="creatJob(event)">
+      <div class="form-group">
+        <label for="picture">Picture URL: </label>
+        <input type="text"   name="picture" class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label for="price">Price: </label>
+        <input type="number"   name="price" class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label for="description">Color: </label>
+        <input type="color"   name="color" class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label for="condition">Condition: </label>
+        <select name="condition" class="form-control">
+          <option value="5">New</option>
+          <option value="4">Like New</option>
+          <option value="2">Used</option>
+          <option value="1">Scrap</option>          
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="make">Make: </label>
+        <input type="text"   name="make" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="model">Model: </label>
+        <input type="text"   name="model" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="year">Year: </label>
+        <input type="range"   name="year" min="1900" max="9999" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="door">Door: </label>
+        <input type="number"   name="door" min="1" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="contact">contact: </label>
+        <input type="email"   name="contact" class="form-control">
+      </div>
+      <button type="submit">You get a car!</button>
+    </form>-->
+
 
     <div id="cars-list" class="row">
     </div>
@@ -25,7 +76,11 @@
     <div id="property-list" class="row">
     </div>
 
+    <div id="job-list" class="row">
+    </div>
+
     <div id="print"></div>
+    
   </div>
 
   <script src="app.js"></script>

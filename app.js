@@ -28,18 +28,66 @@ var mandiCar = new Car("http://blog.caranddriver.com/wp-content/uploads/2015/11/
 
 function drawCars(arrCars) {
   propertyList.innerHTML = ''
+  jobList.innerHTML = ''
   carsList.innerHTML = document.getElementById("cars-list")
   var template = ''
+  var form = `<form onsubmit="creatCar(event)">
+      <div class="form-group">
+        <label for="picture">Picture URL: </label>
+        <input type="text"   name="picture" class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label for="price">Price: </label>
+        <input type="number"   name="price" class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label for="description">Color: </label>
+        <input type="color"   name="color" class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label for="condition">Condition: </label>
+        <select name="condition" class="form-control">
+          <option value="5">New</option>
+          <option value="4">Like New</option>
+          <option value="2">Used</option>
+          <option value="1">Scrap</option>          
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="make">Make: </label>
+        <input type="text"   name="make" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="model">Model: </label>
+        <input type="text"   name="model" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="year">Year: </label>
+        <input type="range"   name="year" min="1900" max="9999" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="door">Door: </label>
+        <input type="number"   name="door" min="1" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="contact">contact: </label>
+        <input type="email"   name="contact" class="form-control">
+      </div>
+      <button type="submit">You get a car!</button>
+    </form>`
   for (var i = 0; i < arrCars.length; i++) {
     var car = arrCars[i]
     template += `
     <div class="col-lg-4">
       <img src="${car.picture}" width="100%"><br>
-      <h4>$${car.make} ${car.model} ${car.year}</h4>
+      <h4>${car.make} ${car.model} ${car.year}</h4>
     </div>
     `
   }
-  carsList.innerHTML = template
+  carsList.innerHTML = form + template
 }
 
 
@@ -75,6 +123,7 @@ var mandiHouse = new Property("https://s-media-cache-ak0.pinimg.com/736x/a4/8c/d
 
 function drawProperty(arrProp) {
   carsList.innerHTML = ''
+  jobList.innerHTML = ''
   propertyList.innerHTML = document.getElementById("property-list")
   var template = ''
   var form = ` 
@@ -99,6 +148,7 @@ function drawProperty(arrProp) {
 }
 
 
+
 var newProp = document.getElementById("print")
 
 function addProperty() {
@@ -106,11 +156,115 @@ function addProperty() {
     document.getElementById("price").value,
     document.getElementById('city').value,
     document.getElementById('state').value)
-    drawProperty(property)
+  drawProperty(property)
   // return newProp.innerHTML = `
   //   <div class="col-lg-4">
   //     <img src="${document.getElementById("pic").value}" width="100%">
   //     <h4>${document.getElementById("price").value} ${document.getElementById('city').value} ${document.getElementById('state').value}</h4><br><br>
   //   </div>
   //   `
+}
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+var jobList = document.getElementById("job-list")
+
+var job = [];
+function Job(title, description) {
+  this.title = title;
+  this.description = description.split(",");
+  job.push(this)
+}
+
+var job1 = new Job("Web Designer", "Photoshop, Css, Html")
+var job2 = new Job("UI/UX Designer", "LightRoom, Indesign, Illistrator")
+var job2 = new Job("Software Developer", "C#, Java, Ruby, Phyton")
+
+
+
+function drawJob(arrJob) {
+  carsList.innerHTML = ''
+  propertyList.innerHTML = ''
+  jobList.innerHTML = document.getElementById("job-list")
+  var template = ''
+  var form = `
+  <form onsubmit="creatJob(event)">
+      <div class="form-group">
+        <label for="title">Title: </label>
+        <input type="text" name="title" class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label for="description">Description: </label>
+        <textarea type="text" name="description" class="form-control"></textarea>
+      </div>
+      <button type="submit">Add Job</button>
+    </form>`
+
+  for (var i = 0; i < arrJob.length; i++) {
+    var list = ''
+    var job = arrJob[i]
+    for (var j = 0; j < job.description.length; j++) {
+      list += `<li>${job.description[j]}</li>`
+    }
+    template += `<div class="col-lg-4"><h1>${job.title}</h1>` + list + `</div>`
+  }
+  jobList.innerHTML = form + template
+}
+
+
+
+var newProp = document.getElementById("print")
+
+function addProperty() {
+  new Property(document.getElementById("pic").value,
+    document.getElementById("price").value,
+    document.getElementById('city').value,
+    document.getElementById('state').value)
+  drawProperty(property)
+  // return newProp.innerHTML = `
+  //   <div class="col-lg-4">
+  //     <img src="${document.getElementById("pic").value}" width="100%">
+  //     <h4>${document.getElementById("price").value} ${document.getElementById('city').value} ${document.getElementById('state').value}</h4><br><br>
+  //   </div>
+  //   `
+}
+
+
+
+
+//////////////////////////////////
+
+
+
+function creatJob(e) {
+  e.preventDefault();
+  var form = e.target;
+  new Job(form.title.value,
+    form.description.value)
+  form.reset()
+  drawJob(job)
+}
+
+
+
+function creatCar(e) {
+  e.preventDefault();
+  var form = e.target;
+  new Car(form.picture.value,
+    form.price.value,
+    form.color.value,
+    form.condition.value,
+    form.make.value,
+    form.model.value,
+    form.year.value,
+    form.contact.value)
+  form.reset()
+  drawCars(cars)
 }
